@@ -1,3 +1,26 @@
+# [8.0.0](https://github.com/vuejs/vue-class-component/compare/v8.0.0-rc.1...v8.0.0) (2025-12-30)
+
+
+### Features
+
+* Full Vue 3.3+ and Vue 3.5+ compatibility
+* Updated peer dependencies to support Vue ^3.3.0
+
+
+### Bug Fixes
+
+* Fixed TypeScript module resolution configuration for test environments
+* Updated `app.unmount()` API usage to match Vue 3.4+ signature (no longer accepts arguments)
+* Fixed mount helper to create unique wrapper elements per test
+
+
+### Dependencies
+
+* Updated vue to 3.5.26
+* Updated @vue/compiler-sfc to 3.5.26
+* Maintained legacy decorator support for stability
+
+
 # [8.0.0-rc.1](https://github.com/vuejs/vue-class-component/compare/v8.0.0-beta.4...v8.0.0-rc.1) (2020-11-20)
 
 

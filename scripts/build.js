@@ -1,10 +1,10 @@
 const fs = require('fs')
 const path = require('path')
 const zlib = require('zlib')
-const uglify = require('uglify-es')
+const { minify } = require('terser')
 const rollup = require('rollup')
-const replace = require('rollup-plugin-replace')
-const babel = require('rollup-plugin-babel')
+const replace = require('@rollup/plugin-replace')
+const babel = require('@rollup/plugin-babel')
 const version = process.env.VERSION || require('../package.json').version
 const banner = `/**
   * vue-class-component v${version}
@@ -144,15 +144,15 @@ function buildEntry({ input, output }, options) {
   return rollup
     .rollup(input)
     .then((bundle) => bundle.generate(output))
-    .then((result) => {
+    .then(async (result) => {
       const { code } = result.output[0]
       if (isMinify) {
-        const minified = uglify.minify(code, {
-          output: {
+        const minified = (await minify(code, {
+          format: {
             preamble: output.banner,
             ascii_only: true,
           },
-        }).code
+        })).code
         return write(output.file, minified, true)
       } else {
         return write(output.file, code)

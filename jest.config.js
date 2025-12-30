@@ -2,14 +2,16 @@ const isBabel = !!process.env.BABEL_TEST
 
 const tsJestConfig = {
   preset: 'ts-jest',
-  globals: {
-    'ts-jest': {
-      tsConfig: 'test/tsconfig.json',
-    },
+  testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', {
+      tsconfig: 'test/tsconfig.json',
+    }],
   },
 }
 
 const babelJestConfig = {
+  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.[t|j]sx?$': ['babel-jest', { configFile: './test/babel.config.js' }],
   },

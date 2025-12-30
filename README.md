@@ -1,10 +1,10 @@
 # Vue Class Component v8
 
-The next Vue Class Component for Vue v3.
+Vue Class Component for Vue 3.3+
 
 ## Status
 
-Beta
+Stable - Full support for Vue 3.3, 3.4, and 3.5+
 
 ## Documentation
 
